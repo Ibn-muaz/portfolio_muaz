@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
@@ -21,17 +20,47 @@
       line-height: 1.7;
       background: #f9fafb;
       color: #1f2937;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
+    body.loaded { opacity: 1; }
 
     header {
-      background: #111827;
+      background: linear-gradient(135deg, #1f2937, #111827);
       color: #fff;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 { font-size: 2.8rem; font-weight: 700; }
-    header p { font-size: 1.2rem; margin-top: .5rem; font-weight: 300; }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    /* Floating animation background effect */
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 20%, transparent 60%);
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
     nav {
       background: #1f2937;
@@ -47,14 +76,13 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.2s;
     }
-
-    nav a:hover { color: #3b82f6; }
+    nav a:hover { color: #3b82f6; transform: scale(1.05); }
 
     section {
       max-width: 1100px;
-      margin: 3rem auto;
+      margin: 4rem auto;
       padding: 0 1rem;
     }
 
@@ -64,9 +92,13 @@
       border-left: 4px solid #3b82f6;
       padding-left: .6rem;
       font-weight: 600;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
+    h2.reveal { opacity: 1; transform: translateY(0); }
 
-    /* About Section */
+    /* About */
     #about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -78,16 +110,15 @@
       width: 100%;
       max-width: 300px;
       border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,.1);
+      box-shadow: 0 8px 18px rgba(0,0,0,.15);
       justify-self: center;
+      transition: transform 0.4s;
     }
+    #about img:hover { transform: scale(1.05); }
 
-    #about p {
-      font-size: 1.05rem;
-      color: #374151;
-    }
+    #about p { font-size: 1.05rem; color: #374151; }
 
-    /* Skills & Projects */
+    /* Cards */
     .skills, .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -98,58 +129,45 @@
     .card {
       background: #fff;
       padding: 1.5rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 4px 10px rgba(0,0,0,.05);
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 6px 14px rgba(0,0,0,.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
     }
-
+    .card.reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease;
+    }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0,0,0,.1);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,.12);
     }
 
-    .card h3 {
-      margin-bottom: .5rem;
-      color: #111827;
-    }
+    .card h3 { margin-bottom: .5rem; color: #111827; }
 
     /* Contact */
     #contact {
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
       background: #f3f4f6;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,.08);
     }
-
-    #contact p {
-      margin: .5rem 0;
-      font-size: 1.05rem;
-    }
-
-    #contact a {
-      color: #3b82f6;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
+    #contact p { margin: .5rem 0; font-size: 1.05rem; }
+    #contact a { color: #3b82f6; text-decoration: none; transition: color 0.3s; }
     #contact a:hover { color: #2563eb; }
 
-    .socials {
-      margin-top: 1rem;
-    }
-
+    .socials { margin-top: 1rem; }
     .socials a {
       margin: 0 10px;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #374151;
       transition: color 0.3s, transform 0.2s;
     }
-
-    .socials a:hover {
-      color: #3b82f6;
-      transform: scale(1.1);
-    }
+    .socials a:hover { color: #3b82f6; transform: scale(1.2); }
 
     footer {
       text-align: center;
@@ -159,25 +177,18 @@
       margin-top: 3rem;
       font-size: 0.9rem;
     }
-
-    footer a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
+    footer a { color: #3b82f6; text-decoration: none; }
 
     /* Responsive */
     @media (max-width: 768px) {
-      #about {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      #about { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1> I'am <br> Muazu Dahiru Hassan</h1>
+    <h1 id="headline"></h1>
     <p>Computer Science Specialist | Web Developer | Python & Django Enthusiast</p>
   </header>
 
@@ -198,7 +209,6 @@
         and solving real-world problems with code.
       </p>
     </div>
-    <!-- picture file-->
     <img src="portfolio_img.jpeg" alt="Muazu Hassan">
   </section>
 
@@ -249,8 +259,41 @@
   </section>
 
   <footer>
-    <p>© 2025 JabalTech |  Portfolio</p>
+    <p>© 2025 JabalTech | Portfolio</p>
   </footer>
 
+  <!-- Scripts for animations -->
+  <script>
+    // Page fade-in
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Typewriter headline
+    const text = "I'm Muazu Dahiru Hassan";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("headline").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
+    window.onload = typeWriter;
+
+    // Scroll reveal
+    function revealOnScroll() {
+      let reveals = document.querySelectorAll(".card, h2");
+      for (let el of reveals) {
+        let windowHeight = window.innerHeight;
+        let elementTop = el.getBoundingClientRect().top;
+        let elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          el.classList.add("reveal");
+        }
+      }
+    }
+    window.addEventListener("scroll", revealOnScroll);
+  </script>
 </body>
 </html>
