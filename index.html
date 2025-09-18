@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muazu Hassan | Computer Science Specialist</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #111827;
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2.8rem; font-weight: 700; }
+    header p { font-size: 1.2rem; margin-top: .5rem; font-weight: 300; }
+
+    nav {
+      background: #1f2937;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #3b82f6; }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #111827;
+      border-left: 4px solid #3b82f6;
+      padding-left: .6rem;
+      font-weight: 600;
+    }
+
+    /* About Section */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    #about img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,.1);
+      justify-self: center;
+    }
+
+    #about p {
+      font-size: 1.05rem;
+      color: #374151;
+    }
+
+    /* Skills & Projects */
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 10px rgba(0,0,0,.05);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    }
+
+    .card h3 {
+      margin-bottom: .5rem;
+      color: #111827;
+    }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      padding: 2rem;
+      background: #f3f4f6;
+      border-radius: 10px;
+    }
+
+    #contact p {
+      margin: .5rem 0;
+      font-size: 1.05rem;
+    }
+
+    #contact a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    #contact a:hover { color: #2563eb; }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.4rem;
+      color: #374151;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    .socials a:hover {
+      color: #3b82f6;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #111827;
+      color: #d1d5db;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1> I'am <br> Muazu Dahiru Hassan</h1>
+    <p>Computer Science Specialist | Web Developer | Python & Django Enthusiast</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <div>
+      <h2>About Me</h2>
+      <p>
+        I am an enthusiastic and detail-oriented undergraduate in Computer Science at 
+        <strong>Nasarawa State University, Keffi</strong>. Skilled in modern web development 
+        and backend engineering, I enjoy building responsive websites, scalable applications, 
+        and solving real-world problems with code.
+      </p>
+    </div>
+    <!-- picture file-->
+    <img src="portfolio_img.jpeg" alt="Muazu Hassan">
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card"><strong>Frontend:</strong> HTML, CSS, JavaScript</div>
+      <div class="card"><strong>Backend:</strong> Python, Django</div>
+      <div class="card"><strong>Database:</strong> SQLite, PostgreSQL (basic)</div>
+      <div class="card"><strong>Version Control:</strong> Git & GitHub</div>
+      <div class="card"><strong>Other:</strong> REST APIs, Responsive Design, Debugging</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>Personal responsive website built with HTML, CSS, and JavaScript to showcase my work.</p>
+      </div>
+      <div class="card">
+        <h3>Library Management System</h3>
+        <p>Web application using Django and SQLite to manage books, students, and borrowing records.</p>
+      </div>
+      <div class="card">
+        <h3>Task Manager App</h3>
+        <p>To-do list application with user authentication built with Django and Bootstrap.</p>
+      </div>
+      <div class="card">
+        <h3>Blog Website</h3>
+        <p>A blog platform with CRUD operations, user login, and admin dashboard in Django.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:jabaltech01@email.com">jabaltech01@email.com</a></p>
+    <p>GitHub: <a href="https://github.com/Ibn-muaz" target="_blank">github.com/Ibn-muaz</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/jabaltech" target="_blank">linkedin.com/in/jabaltech</a></p>
+
+    <div class="socials">
+      <a href="mailto:jabaltech01@email.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Ibn-muaz" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/jabaltech" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 JabalTech |  Portfolio</p>
+  </footer>
+
+</body>
+</html>
