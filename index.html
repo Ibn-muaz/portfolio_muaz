@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muazu Hassan | Computer Science Specialist & Web Developer</title>
-  <meta name="description" content="Portfolio of Muazu Hassan - Computer Science Specialist, Web Developer, and Python/Django Enthusiast">
+  <title>Muazu Hassan | Computer Science Specialist & Technology Professional</title>
+  <meta name="description" content="Portfolio of Muazu Hassan - Computer Science Specialist, Web Developer, and Technology Enthusiast">
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -333,9 +333,43 @@
       font-size: 1.05rem;
     }
     
+    /* Interests Section */
+    #interests {
+      background: var(--light);
+    }
+    
+    .interests-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .interest-card {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .interest-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .interest-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .interest-card h3 {
+      margin-bottom: 1rem;
+    }
+    
     /* Skills Section */
     #skills {
-      background: var(--light);
+      background: white;
     }
     
     .skills-container {
@@ -392,7 +426,7 @@
     
     /* Projects Section */
     #projects {
-      background: white;
+      background: var(--light);
     }
     
     .projects-grid {
@@ -416,6 +450,7 @@
     .project-img {
       height: 200px;
       overflow: hidden;
+      position: relative;
     }
     
     .project-img img {
@@ -463,9 +498,73 @@
       gap: 1rem;
     }
     
+    /* Loading Animation Demo */
+    .loading-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(59, 130, 246, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+    }
+    
+    .loader-2 {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(59, 130, 246, 0.2);
+      border-radius: 50%;
+      border-left-color: var(--primary);
+      animation: spin 1s linear infinite;
+    }
+    
+    .loader-3 {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .loader-3 div {
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+    
+    .loader-3 div:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    
+    .loader-3 div:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes bounce {
+      0%, 80%, 100% { 
+        transform: scale(0);
+      } 40% { 
+        transform: scale(1.0);
+      }
+    }
+    
     /* Contact Section */
     #contact {
-      background: var(--light);
+      background: white;
     }
     
     .contact-container {
@@ -503,7 +602,7 @@
     }
     
     .contact-form {
-      background: white;
+      background: var(--light);
       padding: 2rem;
       border-radius: 15px;
       box-shadow: var(--card-shadow);
@@ -730,6 +829,7 @@
       
       <ul class="nav-links">
         <li><a href="#about" class="active">About</a></li>
+        <li><a href="#interests">Interests</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -751,7 +851,7 @@
     
     <div class="hero-content">
       <h1 id="headline"></h1>
-      <p>Computer Science Specialist | Web Developer | Python & Django Enthusiast</p>
+      <p>Computer Science Specialist | Web Developer | Technology Professional</p>
       <div class="hero-btns">
         <a href="#projects" class="btn">View My Work</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -772,17 +872,19 @@
         <div class="about-text" data-aos="fade-left">
           <p>
             I am an enthusiastic and detail-oriented undergraduate in Computer Science at 
-            <strong>Nasarawa State University, Keffi</strong>. Skilled in modern web development 
-            and backend engineering, I enjoy building responsive websites, scalable applications, 
-            and solving real-world problems with code.
+            <strong>Nasarawa State University, Keffi</strong>. With a passion for technology and innovation, 
+            I specialize in web development, web applications, and have a keen interest in mobile forensics 
+            and technology sales.
           </p>
           
           <p>
-            My passion for technology drives me to continuously learn and adapt to new challenges. 
-            I believe in writing clean, efficient code and creating user experiences that make a difference.
+            My expertise spans from creating responsive websites and scalable web applications to 
+            exploring the intricacies of mobile device security and data recovery. I also have experience 
+            in laptop sales and technology consulting, helping clients find the right solutions for their needs.
           </p>
           
           <p>
+            I believe in writing clean, efficient code and creating user experiences that make a difference. 
             When I'm not coding, you can find me exploring new technologies, contributing to open source, 
             or sharing knowledge with the developer community.
           </p>
@@ -790,6 +892,47 @@
           <a href="#contact" class="btn">Get In Touch</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">My Interests</h2>
+      
+      <div class="interests-container">
+        <div class="interest-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="interest-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Creating responsive, user-friendly websites and applications using modern technologies and best practices.</p>
+        </div>
+        
+        <div class="interest-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="interest-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Web Applications</h3>
+          <p>Building scalable web applications with robust backend systems and intuitive frontend interfaces.</p>
+        </div>
+        
+        <div class="interest-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="interest-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Forensics</h3>
+          <p>Exploring mobile device security, data recovery, and digital investigation techniques.</p>
+        </div>
+        
+        <div class="interest-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="interest-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3>Laptop Sales</h3>
+          <p>Providing technology solutions through laptop sales and consulting services.</p>
+        </div>
+      
     </div>
   </section>
 
@@ -1039,8 +1182,7 @@
         </div>
         
         <div class="contact-form" data-aos="fade-left">
-          <form action="https://formspree.io/f/jabaltech1@gmail.com" method="POST">
-
+          <form id="contactForm">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
@@ -1073,11 +1215,12 @@
     <div class="container">
       <div class="footer-content">
         <h3>Muazu Hassan</h3>
-        <p>Computer Science Specialist & Web Developer</p>
+        <p>Computer Science Specialist & Technology Professional</p>
       </div>
       
       <div class="footer-links">
         <a href="#about">About</a>
+        <a href="#interests">Interests</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -1258,6 +1401,3 @@
   </script>
 </body>
 </html>
-
-
-
