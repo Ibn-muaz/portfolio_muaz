@@ -18,15 +18,17 @@
   <style>
     /* Reset & Base Styles */
     :root {
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --secondary: #1f2937;
-      --dark: #111827;
-      --light: #f9fafb;
-      --gray: #6b7280;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --secondary: #1e293b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
       --success: #10b981;
-      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
+      --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+      --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --gradient: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
     }
     
     * { 
@@ -74,7 +76,11 @@
       position: relative;
       padding-left: 1.2rem;
       margin-bottom: 2.5rem;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
     
     .section-title::before {
@@ -84,7 +90,7 @@
       top: 0;
       height: 100%;
       width: 5px;
-      background: var(--primary);
+      background: var(--gradient);
       border-radius: 10px;
     }
     
@@ -137,7 +143,7 @@
     
     /* Header & Hero */
     header {
-      background: linear-gradient(135deg, var(--dark), var(--secondary));
+      background: radial-gradient(circle at top right, #1e1b4b, #0f172a, #020617);
       color: white;
       padding: 7rem 1rem;
       text-align: center;
@@ -156,13 +162,16 @@
     }
     
     header h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
       margin-bottom: 1rem;
-      color: white;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
     }
     
     header p {
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
       margin-bottom: 2rem;
       color: rgba(255, 255, 255, 0.9);
     }
@@ -330,7 +339,9 @@
     
     .about-text p {
       margin-bottom: 1.5rem;
-      font-size: 1.05rem;
+      font-size: clamp(1rem, 1.5vw + 0.5rem, 1.15rem);
+      line-height: 1.8;
+      color: var(--secondary);
     }
     
     /* Interests Section */
@@ -448,15 +459,18 @@
     }
     
     .project-img {
-      height: 200px;
+      aspect-ratio: 16 / 9;
+      height: auto;
       overflow: hidden;
       position: relative;
+      background: #f8fafc;
     }
     
     .project-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
       transition: var(--transition);
     }
     
@@ -730,16 +744,41 @@
       transform: translateY(-5px);
     }
     
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      cursor: pointer;
+      z-index: 999;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1) translateY(-5px);
+      background-color: #128c7e;
+      color: white;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    
     /* Responsive Design */
     @media (max-width: 992px) {
-      header h1 {
-        font-size: 2.8rem;
-      }
-      
-      header p {
-        font-size: 1.2rem;
-      }
-      
       .about-content {
         gap: 3rem;
       }
@@ -806,18 +845,6 @@
       header {
         padding: 6rem 1rem;
       }
-      
-      header h1 {
-        font-size: 2.2rem;
-      }
-      
-      header p {
-        font-size: 1.1rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
     }
   </style>
 </head>
@@ -825,7 +852,7 @@
   <!-- Navigation -->
   <nav id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">Muadh<span>.</span></a>
+      <a href="#" class="logo">JABALTECH<span>.</span></a>
       
       <ul class="nav-links">
         <li><a href="#about" class="active">About</a></li>
@@ -866,24 +893,20 @@
       
       <div class="about-content">
         <div class="about-img" data-aos="fade-right">
-          <img src="https://raw.githubusercontent.com/Ibn-muaz/portfolio/main/IMG_20250430_114653_408~2_1.jpg" alt="Muazu Hassan">
+          <img src="me.webp" alt="Muazu Hassan">
         </div>
         
         <div class="about-text" data-aos="fade-left">
           <p>
-            I am a Computer Science student at Nasarawa State University, Keffi. 
-            I love technology and creating new things. I build websites and web apps. 
-            I also study mobile forensics and sell laptops.
+            I am a Computer Science student at Nasarawa State University, Keffi, with a profound passion for technology and innovation. I specialize in designing and developing modern websites and robust web applications, while also exploring the field of mobile forensics and providing professional website maintenance services.
           </p>
           
           <p>
-            I make websites that work well on all devices. I build web apps that can grow with your needs. 
-            I also help people recover data from mobile devices. I help clients find the right laptops for their work.
+            My expertise lies in crafting fully responsive, mobile-optimized websites and scalable web applications tailored to meet dynamic business requirements. Additionally, I offer data recovery solutions for mobile devices and provide comprehensive website maintenance to ensure optimal performance, security, and uptime for my clients.
           </p>
           
           <p>
-            I write clean, simple code that works well. I enjoy making user-friendly designs. 
-            When I'm not coding, I learn new technologies and help other developers.
+            I am committed to writing clean, efficient, and maintainable code, with a strong emphasis on delivering intuitive and user-centric designs. Outside of development, I continuously expand my technical skill set and actively contribute to the developer community.
           </p>
           
           <a href="#contact" class="btn">Get In Touch</a>
@@ -903,7 +926,7 @@
             <i class="fas fa-code"></i>
           </div>
           <h3>Web Development</h3>
-          <p>I build websites that work well on all devices using modern tools.</p>
+          <p>I build responsive and highly performant websites using modern technologies and industry best practices.</p>
         </div>
         
         <div class="interest-card" data-aos="fade-up" data-aos-delay="200">
@@ -911,7 +934,7 @@
             <i class="fas fa-laptop-code"></i>
           </div>
           <h3>Web Applications</h3>
-          <p>I create web apps that can grow with your business needs.</p>
+          <p>I engineer scalable and secure web applications designed to adapt and grow with your business needs.</p>
         </div>
         
         <div class="interest-card" data-aos="fade-up" data-aos-delay="300">
@@ -919,15 +942,15 @@
             <i class="fas fa-mobile-alt"></i>
           </div>
           <h3>Mobile Forensics</h3>
-          <p>I study mobile security and help recover lost data from devices.</p>
+          <p>I analyze mobile device security and implement advanced data recovery techniques for digital forensics.</p>
         </div>
         
         <div class="interest-card" data-aos="fade-up" data-aos-delay="400">
           <div class="interest-icon">
-            <i class="fas fa-laptop"></i>
+            <i class="fas fa-tools"></i>
           </div>
-          <h3>Laptop Sales</h3>
-          <p>I help people find the right laptops for their work and budget.</p>
+          <h3>Website Maintenance</h3>
+          <p>I provide ongoing technical support, security updates, and performance optimization for websites.</p>
         </div>
       </div>
     </div>
@@ -1052,67 +1075,64 @@
       <div class="projects-grid">
         <div class="project-card" data-aos="fade-up" data-aos-delay="100">
           <div class="project-img">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Portfolio Website">
+            <img src="ychst-sanga.png" alt="YCHST Website">
           </div>
           
           <div class="project-content">
-            <h3>Portfolio Website</h3>
-            <p>A personal website to show my work and skills. Works well on all devices.</p>
+            <h3>YCHST</h3>
+            <p>Official website for Yusuf Chila School of Health Technology, providing information about academic programs, admissions, and campus news.</p>
             
             <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">HTML/CSS</span>
               <span class="tech-tag">JavaScript</span>
             </div>
             
             <div class="project-links">
-              <a href="#" class="btn">View Project</a>
+              <a href="https://ychst.ng/" target="_blank" class="btn">View Project</a>
             </div>
           </div>
         </div>
         
         <div class="project-card" data-aos="fade-up" data-aos-delay="200">
           <div class="project-img">
-            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Library Management System">
+            <img src="projecthub.png" alt="ProjectHub Website">
           </div>
           
           <div class="project-content">
-            <h3>Library Management System</h3>
-            <p>A web app to manage books, students, and borrowing records for libraries.</p>
+            <h3>ProjectHub</h3>
+            <p>A comprehensive platform connecting researchers, students, and academic professionals.</p>
             
             <div class="project-tech">
               <span class="tech-tag">Django</span>
               <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQLite</span>
-              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Web App</span>
             </div>
             
             <div class="project-links">
-              <a href="#" class="btn">View Project</a>
+              <a href="https://projecthub.ng/" target="_blank" class="btn">View Project</a>
             </div>
           </div>
         </div>
         
         <div class="project-card" data-aos="fade-up" data-aos-delay="300">
           <div class="project-img">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Task Manager App">
+            <img src="zb-lands.png" alt="ZB Site">
           </div>
           
-         
-          
           <div class="project-content">
-            <h3>Blog Website</h3>
-            <p>A platform where users can write, edit, and publish blog posts.</p>
+            <h3>ZB Site</h3>
+            <p>A modern web application deployed on Render, built with advanced web technologies.</p>
             
             <div class="project-tech">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">CRUD</span>
-              <span class="tech-tag">Admin Panel</span>
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">Full-stack</span>
+              <span class="tech-tag">Deployment</span>
             </div>
             
             <div class="project-links">
-              <a href="#" class="btn">View Project</a>
+              <a href="https://zb-site.onrender.com/" target="_blank" class="btn">View Project</a>
             </div>
           </div>
         </div>
@@ -1153,7 +1173,7 @@
             </div>
             <div class="contact-details">
               <h4>Website</h4>
-              <a href="https://ibn-muaz.github.io/portfolio_muaz/" target="_blank">My Portfolio</a>
+              <a href="https://projecthub.ng/" target="_blank">projecthub.ng</a>
             </div>
           </div>
           
@@ -1223,6 +1243,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/2348075312264" target="_blank" class="whatsapp-btn" title="Chat with me on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Back to Top Button -->
   <div class="back-to-top">
