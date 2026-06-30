@@ -170,10 +170,20 @@
       line-height: 1.2;
     }
     
-    header p {
+    header .hero-subtitle {
       font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: rgba(255, 255, 255, 0.9);
+    }
+    
+    header .hero-description {
+      font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
     
     .hero-btns {
@@ -694,7 +704,7 @@
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: clamp(1rem, 3vw, 2rem);
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
@@ -878,7 +888,8 @@
     
     <div class="hero-content">
       <h1 id="headline"></h1>
-      <p>Computer Science Specialist | Web Developer | Technology Professional</p>
+      <p class="hero-subtitle">Computer Science Specialist | Web Developer | Technology Professional</p>
+      <p class="hero-description">I specialize in building scalable web applications, designing responsive websites, and providing reliable website maintenance & data recovery solutions for businesses.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn">View My Work</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
@@ -1226,7 +1237,7 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <h3>Muazu Hassan</h3>
+        <h3>JABALTECH</h3>
         <p>Computer Science Specialist & Technology Professional</p>
       </div>
       
