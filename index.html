@@ -317,14 +317,20 @@
     
     .about-img {
       position: relative;
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
     }
     
     .about-img img {
       width: 100%;
-      max-width: 400px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: top center;
       border-radius: 15px;
       box-shadow: var(--card-shadow);
       transition: var(--transition);
+      display: block;
     }
     
     .about-img img:hover {
@@ -341,6 +347,7 @@
       top: 15px;
       left: 15px;
       z-index: -1;
+      transition: var(--transition);
     }
     
     .about-text h2 {
@@ -904,20 +911,16 @@
       
       <div class="about-content">
         <div class="about-img" data-aos="fade-right">
-          <img src="me.webp" alt="Muazu Hassan">
+          <img src="profile.png" alt="Muazu Hassan">
         </div>
         
         <div class="about-text" data-aos="fade-left">
           <p>
-            I am a Computer Science student at Nasarawa State University, Keffi, with a profound passion for technology and innovation. I specialize in designing and developing modern websites and robust web applications, while also exploring the field of mobile forensics and providing professional website maintenance services.
+            Hi! I'm a Computer Science student and web developer passionate about building fast, responsive, and user-friendly digital solutions.
           </p>
           
           <p>
-            My expertise lies in crafting fully responsive, mobile-optimized websites and scalable web applications tailored to meet dynamic business requirements. Additionally, I offer data recovery solutions for mobile devices and provide comprehensive website maintenance to ensure optimal performance, security, and uptime for my clients.
-          </p>
-          
-          <p>
-            I am committed to writing clean, efficient, and maintainable code, with a strong emphasis on delivering intuitive and user-centric designs. Outside of development, I continuously expand my technical skill set and actively contribute to the developer community.
+            I specialize in full-stack web development, scalable applications, and website maintenance, along with mobile forensics and data recovery. I'm driven by clean code and creating reliable technology that solves real-world problems.
           </p>
           
           <a href="#contact" class="btn">Get In Touch</a>
