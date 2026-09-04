@@ -60,6 +60,8 @@
     p {
       margin-bottom: 1rem;
       color: var(--secondary);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
     
     a {
@@ -359,6 +361,11 @@
       font-size: clamp(1rem, 1.5vw + 0.5rem, 1.15rem);
       line-height: 1.8;
       color: var(--secondary);
+      text-align: justify;
+      text-justify: inter-word;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
     
     /* Interests Section */
@@ -840,11 +847,30 @@
       
       .about-content {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 2.5rem;
+      }
+      
+      .about-img {
+        max-width: 320px;
       }
       
       .about-img::after {
         display: none;
+      }
+      
+      .about-text {
+        text-align: left;
+      }
+      
+      .about-text p {
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      
+      .about-text .btn {
+        display: block;
+        width: fit-content;
+        margin: 1.5rem auto 0;
       }
       
       .hero-btns {
@@ -861,6 +887,15 @@
     @media (max-width: 576px) {
       header {
         padding: 6rem 1rem;
+      }
+      
+      .about-img {
+        max-width: 280px;
+      }
+      
+      .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
       }
     }
   </style>
